@@ -5,42 +5,119 @@ body
 .global
 	width: 100%
 	text-align: center
-
-.logo
-	width: 197px
-	height: 388px
-	display: block
-	margin: 100px auto 30px auto
-	@include animation(Floating 3s infinite ease-in-out)
-
-.title
-	font-size: em(26px)
-	font-weight: normal
-	color: $color-marine-blue
-	padding-bottom: 15px
-
-.legend
-	font-size: em(18px)
-	font-weight: normal
-	font-weight: 300
-	color: $color-gray-light
-	padding-bottom: 20px
-
-.credits
-	font-size: em(8px)
-	color: $color-orange-light
-
-	a
-		color: #E74C3C
-		padding-bottom: 3px
-		border-bottom: 1px solid transparent
-		@include trans(all, .15s, linear)
-
-		&:hover
-			border-bottom-color: $color-orange-light 
-
-
-#fork-me
-	position: absolute
+	position: fixed
 	top: 0
-	left: 0
+
+	-webkit-transform: translate(0px,-200%)
+	opacity: 0
+	@include trans(all, .6s, linear)
+
+	&.translating
+		-webkit-transform: translate(0,0)
+		opacity: 1
+
+.close-application
+	position: absolute
+	top: 20px
+	right: 20px
+	width: 30px
+	height: 30px
+	background-color: #D14836
+	background-image: -webkit-linear-gradient(top,#DD4B39,#D14836)
+	background-image: linear-gradient(top,#dd4b39,#d14836)
+	border: 1px solid rgba(0, 0, 0, 0)
+	text-shadow: 0 1px rgba(0, 0, 0, 0.1)
+	color: #FFF
+
+
+.header
+	width: 100%
+	background-color: #1f7ad5
+	color: #fff
+	padding-top: 20px
+	position: relative
+
+.original-words-box
+	width: 90%
+	text-align: left
+	display: inline-block
+	margin-bottom: 20px
+
+	.language
+		font-size: em(8px)
+
+	.words
+		font-size: em(18px)
+
+.translated-words-box
+	@extend .original-words-box
+
+.translation-result
+	width: 100%
+	height: 10px
+	background-color: #FFF
+	padding: 10px 0 60px 0
+	border-bottom: 1px solid gray
+	position: absolute
+	overflow: hidden
+	@include trans(all, .3s, linear)
+
+	&.on-bar
+		height: auto
+
+		.substantive-list
+			opacity: 1
+
+		.verb-list
+			opacity: 1
+
+	.title-of-block
+		width: 90%
+		text-align: left
+		display: inline-block
+		color: #1f7ad5
+		font-weight: 900
+		font-size: em(10px)
+		margin-bottom: 20px
+
+.substantive-list
+	width: 45%
+	text-align: left
+	display: inline-block
+	margin-bottom: 20px
+	opacity: 0
+	@include trans(all, .3s, linear)
+
+	.title-of-col
+		font-size: (12px)
+		color: #ccc
+		padding-bottom: 12px
+
+	.prime-word
+		font-size: (18px)
+		color: gray
+
+	.others-words
+		font-size: (20px)
+		color: #ccc
+
+.verb-list
+	@extend .substantive-list
+
+.open-bar
+	position: absolute
+	left: 47%
+	bottom: 10px
+	width: 30px
+	height: 30px
+	background-color: red
+	text-indent: -9999px
+
+
+
+
+h1
+	font-size: em(46px)
+	padding-top: 5em
+	text-align: center
+

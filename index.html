@@ -1,4 +1,49 @@
-<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Gulp Web App Workflow</title><meta name=description><meta name=viewport content="width=device-width, initial-scale=1"><meta property=og:image content=http://rmdias.com/gulpworkflow/img/gulp-logo.png><meta property=og:title content="Gulp Web App Workflow - Boilerplate from web app using Gulp.JS"><meta property=og:url content=http://rmdias.com/gulpworkflow><meta property=og:site_name content="Gulp Web App Workflow"><link rel="shortcut icon" href=./favicon.ico><link rel=stylesheet href=./css/all.min.css><script src=./js/vendor/modernizr-2.6.2.min.js></script></head><body><div id=fork-me><a href=https://github.com/rmdias/gulp-web-app-workflow title="Fork me on GitHub"><img alt="Fork me on GitHub" src=./img/icon-fork-me.png></a></div><div class=global><div class=logo><img src=./img/gulp-logo.png></div><h1 class=title>Gulp Web App Workflow</h1><p class=legend>Boilerplate from web app using Gulp.JS</p> <span class=credits>by <a href=https://github.com/rmdias>Rodolfo Dias - @r_mdias</a></span></div><script src=./js/all.min.js></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Gulp Web App Workflow</title><meta name=description><meta name=viewport content="width=device-width, initial-scale=1"><meta property=og:image><meta property=og:title><meta property=og:url><meta property=og:site_name><link rel="shortcut icon" href=./favicon.ico><link rel=stylesheet href=./css/all.min.css><script src=./js/vendor/modernizr-2.6.2.min.js></script></head><body><div class="global translating"><header class=header><div class=original-words-box><h2 class=language>Inglês</h2><h2 class=words>car</h2></div><div class=translated-words-box><h2 class=language>Português</h2><h2 class=words>carro</h2></div><div class=close-application>X</div></header><main class="translation-result off-bar"><h3 class=title-of-block>Dicionário</h3><dl class=substantive-list><dt class=title-of-col>Substantivo</dt><dd class=col-itens><strong class=prime-word>ombro</strong> <span class=others-words>sholder</span></dd></dl><dl class=verb-list><dt class=title-of-col>Verbo</dt><dd class=col-itens><strong class=prime-word>arcar</strong> <span class=others-words>rquei</span></dd></dl> <a href=# class=open-bar>tap here to open</a></main></div><h1 class=test-text>OPAAAAAAAA</h1><script src=./js/all.min.js></script><script>var button = document.querySelector('.open-bar');
+     
+      button.addEventListener('click', function (event) {
+        var translationsContent = event.target.parentNode;
+
+        if (translationsContent.classList.contains('off-bar')) {
+          translationsContent.classList.remove('off-bar');//.add('on-bar');
+          translationsContent.classList.add('on-bar');
+
+        }else{
+          translationsContent.classList.add('off-bar');
+          translationsContent.classList.remove('on-bar');
+        }
+      });
+
+
+      var closeButton = document.querySelector('.close-application');
+     
+      closeButton.addEventListener('click', function (event) {
+        var application = document.querySelector('.global');
+
+        application.classList.remove('translating');
+      });
+
+
+      function getSelectedText() {
+        var text = "";
+        if (typeof window.getSelection != "undefined") {
+          text = window.getSelection().toString();
+        } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+          text = document.selection.createRange().text;
+        }
+        return text;
+      }
+
+      function doSomethingWithSelectedText() {
+        var selectedText = getSelectedText();
+        var application = document.querySelector('.global');
+        
+        if (selectedText) {
+          application.classList.add('translating');
+        }
+      }
+
+      document.onmouseup = doSomethingWithSelectedText;
+      document.onkeyup = doSomethingWithSelectedText;</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
         function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
         e=o.createElement(i);r=o.getElementsByTagName(i)[0];
         e.src='//www.google-analytics.com/analytics.js';
