@@ -27,7 +27,7 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="global translating">
+    <div class="global">
       <header class="header">
         <div class="original-words-box">
           <h2 class="language">Inglês</h2>
@@ -60,63 +60,12 @@
     </div><!-- global -->
 
 
-    <h1 class="test-text">OPAAAAAAAA</h1>
+    <h1 class="test-text">Baby you're my love! For us every day is like a Valentine's Day, I'll be loving you till my last breath.</h1>
 
 
-
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="./js/all.min.js"></script>
-      
-    <script>
-
-      var button = document.querySelector('.open-bar');
-     
-      button.addEventListener('click', function (event) {
-        var translationsContent = event.target.parentNode;
-
-        if (translationsContent.classList.contains('off-bar')) {
-          translationsContent.classList.remove('off-bar');//.add('on-bar');
-          translationsContent.classList.add('on-bar');
-
-        }else{
-          translationsContent.classList.add('off-bar');
-          translationsContent.classList.remove('on-bar');
-        }
-      });
-
-
-      var closeButton = document.querySelector('.close-application');
-     
-      closeButton.addEventListener('click', function (event) {
-        var application = document.querySelector('.global');
-
-        application.classList.remove('translating');
-      });
-
-
-      function getSelectedText() {
-        var text = "";
-        if (typeof window.getSelection != "undefined") {
-          text = window.getSelection().toString();
-        } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
-          text = document.selection.createRange().text;
-        }
-        return text;
-      }
-
-      function doSomethingWithSelectedText() {
-        var selectedText = getSelectedText();
-        var application = document.querySelector('.global');
-        
-        if (selectedText) {
-          application.classList.add('translating');
-        }
-      }
-
-      document.onmouseup = doSomethingWithSelectedText;
-      document.onkeyup = doSomethingWithSelectedText;
-
-
-    </script>
+   <script>APP.iniciar();</script>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

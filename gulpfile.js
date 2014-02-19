@@ -36,7 +36,6 @@ var myReporter = map(function (file, cb) {
   cb(null, file);
 });
 
-
 // tasks
 gulp.task('build', function(){
  
@@ -48,7 +47,7 @@ gulp.task('build', function(){
       .pipe(jshint())
       .pipe(myReporter)
       .pipe(concat('all.min.js'))
-      .pipe(uglify())
+      // .pipe(uglify())
       .pipe(gulp.dest(scriptDist));
 
 
@@ -66,8 +65,8 @@ gulp.task('build', function(){
   var imageFiles = './assets/img/**/*';
   var imageDist = './img';
   gulp.src(imageFiles)
-        .pipe(imagemin())
-        .pipe(gulp.dest(imageDist));
+      .pipe(imagemin())
+      .pipe(gulp.dest(imageDist));
 
 
   // { html }
@@ -75,9 +74,8 @@ gulp.task('build', function(){
   var htmlDist = './';
 
   gulp.src(htmlFiles)
-    .pipe(minifyHtml())
-    .pipe(gulp.dest(htmlDist));
-
+      .pipe(minifyHtml())
+      .pipe(gulp.dest(htmlDist));
 });
 
 // The default task (called when you run `gulp`)
