@@ -1,8 +1,7 @@
-body
+.google-translator-global-app
 	font-size: em(20px)
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
 
-.global-app
 	width: 100%
 	text-align: center
 	position: fixed
@@ -13,11 +12,11 @@ body
 	-webkit-transform: translate(0px,-200%)
 	@include trans(all, .6s, linear)
 
-	&.translating
+	&.translating-google-translator-app
 		-webkit-transform: translate(0,0)
 		opacity: 1
 
-.close-application
+.close-google-translator-app
 	position: absolute
 	top: 10px
 	right: 10px
@@ -37,44 +36,42 @@ body
 	cursor: pointer	
 	@include bdrs(3px)
 
-.header
+.header-google-translator-app
 	width: 100%
 	background-color: #1f7ad5
 	color: #fff
 	padding-top: 14px
 	position: relative
 
-.original-words-box
+.original-words-box-google-translator-app
 	width: 90%
 	text-align: left
 	display: inline-block
 	margin-bottom: 16px
 
-	.language
+	.language-google-translator-app
 		font-size: em(8px)
 		opacity: .5
 		font-family: 'GothamBook'
 
-	.words
+	.words-google-translator-app
 		font-size: em(14px)
 		font-family: 'GothamBook'
-		// margin-top: -3px
+		margin-top: 3px
 		
 		&:first-letter
 			text-transform: uppercase
 
-.translated-words-box
-	@extend .original-words-box
+.translated-words-box-google-translator-app
+	@extend .original-words-box-google-translator-app
 	margin-bottom: 10px
 
-	.words
+	.words-google-translator-app
 		font-size: em(24px)
 		font-weight: 900
 
-.translation-result
-
+.translation-result-google-translator-app
 	display: none
-
 	width: 100%
 	height: 10px
 	background-color: #FFF
@@ -84,16 +81,16 @@ body
 	overflow: hidden
 	@include trans(all, .3s, linear)
 
-	&.on-bar
+	&.on-bar-google-translator-app
 		height: auto
 
-		.substantive-list
+		.substantive-list-google-translator-app
 			opacity: 1
 
-		.verb-list
+		.verb-list-google-translator-app
 			opacity: 1
 
-	.title-of-block
+	.title-of-block-google-translator-app
 		width: 90%
 		text-align: left
 		display: inline-block
@@ -102,7 +99,7 @@ body
 		font-size: em(10px)
 		margin-bottom: 20px
 
-.substantive-list
+.substantive-list-google-translator-app
 	width: 45%
 	text-align: left
 	display: inline-block
@@ -110,23 +107,23 @@ body
 	opacity: 0
 	@include trans(all, .3s, linear)
 
-	.title-of-col
+	.title-of-col-google-translator-app
 		font-size: (12px)
 		color: #ccc
 		padding-bottom: 12px
 
-	.prime-word
+	.prime-word-google-translator-app
 		font-size: (18px)
 		color: gray
 
-	.others-words
+	.others-words-google-translator-app
 		font-size: (20px)
 		color: #ccc
 
-.verb-list
-	@extend .substantive-list
+.verb-list-google-translator-app
+	@extend .substantive-list-google-translator-app
 
-.open-bar
+.open-bar-google-translator-app
 	position: absolute
 	left: 47%
 	bottom: 10px

@@ -4,8 +4,8 @@ APP.Widget = {
   _tela: null,
   setUp: function() {
     var that = this;
-    var button = document.querySelector('.open-bar');
-    var closeButton = document.querySelector('.close-application');
+    var button = document.querySelector('.open-bar-google-translator-app');
+    var closeButton = document.querySelector('.close-google-translator-app');
 
     button.addEventListener('click', function (event) {
      that.openCloseDatailsBar();
@@ -18,18 +18,18 @@ APP.Widget = {
   openCloseDatailsBar : function(event) {
     var translationsContent = event.target.parentNode;
 
-    if (translationsContent.classList.contains('off-bar')) {
-      translationsContent.classList.remove('off-bar');
-      translationsContent.classList.add('on-bar');
+    if (translationsContent.classList.contains('off-bar-google-translator-app')) {
+      translationsContent.classList.remove('off-bar-google-translator-app');
+      translationsContent.classList.add('on-bar-google-translator-app');
     }else{
-      translationsContent.classList.add('off-bar');
-      translationsContent.classList.remove('on-bar');
+      translationsContent.classList.add('off-bar-google-translator-app');
+      translationsContent.classList.remove('on-bar-google-translator-app');
     }
   },
   exiteForApplication : function() {
-    var application = document.querySelector('.global-app');
+    var application = document.querySelector('.google-translator-global-app');
    
-    application.classList.remove('translating');
+    application.classList.remove('translating-google-translator-app');
   },
   setLanguageName : function(language) {
     switch(language){

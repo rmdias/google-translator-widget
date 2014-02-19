@@ -4,12 +4,14 @@ var APP = APP || {};
 APP.Widget.GetSelection = {
   _tela: null,
   setUp: function() {
-    var that = this;
-    document.addEventListener('keyup', function () {
+    var that = this,
+    htmlDocument = document.querySelector('body:not(.google-translator-app-global-app)');
+    
+    htmlDocument.addEventListener('keyup', function () {
       that.doSomethingWithSelectedText();
     });
 
-    document.addEventListener('mouseup', function () {
+    htmlDocument.addEventListener('mouseup', function () {
       that.doSomethingWithSelectedText();
     });
   },
@@ -26,9 +28,15 @@ APP.Widget.GetSelection = {
     var selectedText = APP.Widget.GetSelection.getSelectedText(),
         destinationLanguage = 'pt';
     
-    if (selectedText && selectedText != " " && selectedText != undefined && selectedText != 'undefined') {
-      var originalText = document.querySelector('.original-words-box .words');
-      var translatedLang = document.querySelector('.translated-words-box .language');
+    if (
+      selectedText
+      && selectedText != " "
+      && selectedText != undefined
+      && selectedText != 'undefined'
+      ){
+
+      var originalText = document.querySelector('.original-words-box-google-translator-app .words-google-translator-app');
+      var translatedLang = document.querySelector('.translated-words-box-google-translator-app .language-google-translator-app');
 
       originalText.innerText = selectedText;
       translatedLang.innerText = APP.Widget.setLanguageName(destinationLanguage);

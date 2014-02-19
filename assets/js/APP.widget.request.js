@@ -15,24 +15,24 @@ APP.Widget.Request = {
     .success(function(data) {
       APP.Widget.Request.successRequest(data);
     })
-    .fail(function() {
+    .fail(function(data) {
       APP.Widget.Request.failRequest(data);
     })
-    .always(function() {
+    .always(function(data) {
       APP.Widget.Request.afterRequest(data);
     });
   },
   successRequest : function(data) {
-    var application = document.querySelector('.global-app'),
-        translatedText = document.querySelector('.translated-words-box .words'),
-        translatedLang = document.querySelector('.original-words-box .language');
-        
+    var application = document.querySelector('.google-translator-global-app'),
+        translatedText = document.querySelector('.translated-words-box-google-translator-app .words-google-translator-app'),
+        translatedLang = document.querySelector('.original-words-box-google-translator-app .language-google-translator-app');
+
     console.log("success", data.responseData);
 
     translatedLang.innerText = APP.Widget.setLanguageName(data.responseData.detectedSourceLanguage);
     translatedText.innerText = data.responseData.translatedText;
 
-    application.classList.add('translating');
+    application.classList.add('translating-google-translator-app');
   },
   failRequest : function(data) {
     console.log("We were unable to translate this word :(");
