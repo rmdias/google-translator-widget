@@ -10,12 +10,12 @@ body
 	opacity: 0
 	-webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1), inset 1px 1px 5px 1px rgba(0,0,0,0.1)
 	box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1), inset 1px 1px 5px 1px rgba(0,0,0,0.1)
-	// -webkit-transform: translate(0px,-200%)
+	-webkit-transform: translate(0px,-200%)
 	@include trans(all, .6s, linear)
 
-	// &.translating
-	-webkit-transform: translate(0,0)
-	opacity: 1
+	&.translating
+		-webkit-transform: translate(0,0)
+		opacity: 1
 
 .close-application
 	position: absolute

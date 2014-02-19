@@ -26,7 +26,7 @@ APP.Widget.GetSelection = {
     var selectedText = APP.Widget.GetSelection.getSelectedText(),
         destinationLanguage = 'pt';
     
-    if (selectedText) {
+    if (selectedText && selectedText != " " && selectedText != undefined && selectedText != 'undefined') {
       var originalText = document.querySelector('.original-words-box .words');
       var translatedLang = document.querySelector('.translated-words-box .language');
 
