@@ -7,7 +7,7 @@ APP.Widget.Request = {
     var that = this;
   },
   translateRequest : function(destinationLanguage, queryWords) {
-    var application = document.querySelector('.global');
+    var application = document.querySelector('.global-app');
 
     $.ajax({
       url: 'http://rmdias.com/google-translator/translate.php?d='+ destinationLanguage +'&q=' + queryWords,
@@ -20,7 +20,7 @@ APP.Widget.Request = {
       var translatedText = document.querySelector('.translated-words-box .words');
       var translatedLang = document.querySelector('.original-words-box .language');
 
-      translatedLang.innerText = data.responseData.detectedSourceLanguage;
+      translatedLang.innerText = APP.Widget.setLanguageName(data.responseData.detectedSourceLanguage);
       translatedText.innerText = data.responseData.translatedText;
 
       application.classList.add('translating');

@@ -31,7 +31,7 @@ APP.Widget.GetSelection = {
       var translatedLang = document.querySelector('.translated-words-box .language');
 
       originalText.innerText = selectedText;
-      translatedLang.innerText = destinationLanguage;
+      translatedLang.innerText = APP.Widget.setLanguageName(destinationLanguage);
 
       APP.Widget.Request.translateRequest(destinationLanguage ,selectedText);
     }

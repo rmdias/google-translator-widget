@@ -80,7 +80,7 @@ gulp.task('build', function(){
 
 // The default task (called when you run `gulp`)
 gulp.task('default', function() {
-  gulp.run('build');
+  // gulp.run('build');
 
   // Watch files and run tasks if they change
   gulp.watch('./assets/**/*', function() {
