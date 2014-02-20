@@ -29,8 +29,11 @@ APP.Widget.Request = {
 
     console.log("success", data.responseData);
 
+    translatedText.style.fontSize = '36px';
     translatedLang.innerText = APP.Widget.setLanguageName(data.responseData.detectedSourceLanguage);
     translatedText.innerText = data.responseData.translatedText;
+    
+    APP.Widget.setAgradableLengthOnText();
 
     application.classList.add('translating-google-translator-app');
   },

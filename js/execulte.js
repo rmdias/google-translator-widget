@@ -1,0 +1,1 @@
+APP.iniciar(APP.Widget.Configuration);

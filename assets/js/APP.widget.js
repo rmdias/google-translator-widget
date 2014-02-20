@@ -227,5 +227,25 @@ APP.Widget = {
         break;        
     }
     return language 
+  },
+  setAgradableLengthOnText : function() {
+    var twoLines = 80,
+        treeLines = twoLines + 40,
+        fourLines = treeLines + 40,
+
+    translatedText = document.querySelector('.translated-words-box-google-translator-app .words-google-translator-app');   
+
+    console.log(twoLines, treeLines, fourLines);
+
+    if(translatedText.offsetHeight >= fourLines){
+      translatedText.style.fontSize = '36px';
+      console.log('1');
+    }else if(translatedText.offsetHeight >= treeLines){
+      translatedText.style.fontSize = '28px';
+      console.log('2');
+    }else if(translatedText.offsetHeight >= twoLines){
+      translatedText.style.fontSize = '20px';
+      console.log('3');
+    }
   }
 }

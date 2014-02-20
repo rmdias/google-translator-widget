@@ -1,0 +1,128 @@
+.global-configurations
+	font-size: em(20px)
+	width: 364px
+	font-family: 'GothamBook'
+	margin: 0 auto
+	overflow: hidden
+	@include bdrs(5px)
+
+// background-image: url('chrome-extension://__MSG_@@extension_id__/controls.png');
+.configurations-title
+	font-size: 18px
+	padding-top: 0
+	text-align: left
+
+.configuration-header
+	width: 95%
+	background-color: #1f7ad5
+	color: #fff
+	padding: 27px 0 23px 19px
+	font-size: 18px
+
+.configurations-main
+	width: 100%
+	padding: 26px 0 30px 0
+	text-align: center
+
+.translate-when-selection
+	width: 94%
+	display: inline-block
+	text-align: left
+
+	.label
+		display: inline-block
+
+.label
+	color: #535353
+	font-size: 16px
+	vertical-align: top
+
+.switch-component
+	width: 120px
+	height: 38px
+	margin: -10px 0 26px 10px
+	position: relative
+	display: inline-block
+	vertical-align: top	
+	cursor: pointer
+	@include bdrs(50em)
+	@include trans(all, .25s, linear)
+	
+	.component-label
+		position: absolute
+		font-size: 11px
+		font-weight: 900
+		top: 15px
+		color: #fff
+		@include trans(all, 0.25s, linear)
+
+	&.is-on
+		background-color: #2fe9aa
+		
+		.component-label
+			left: 20px
+
+		.component-ico
+			-webkit-transform: translate(85px, 3px)
+			transform: translate(85px, 3px)
+
+	&.is-off
+		background-color: #e92f49
+	
+		.component-label
+			left: 40px
+		
+		.component-ico
+			-webkit-transform: translate(3px, 3px)
+			transform: translate(3px, 3px)
+
+	.component-ico
+		width: 32px
+		height: 32px
+		background-color: #fff
+		position: absolute
+		-webkit-transform: translate(3px, 3px)
+		transform: translate(3px, 3px)
+		@include bdrs(50em)
+		@include trans(all, .25s, linear)
+		
+.destination-language
+	@extend .translate-when-selection
+
+.languages-set
+	width: 99%
+	height: 50px
+	border: 1px solid  #e7e7e7
+	background-color: #fff
+	position: relative
+	cursor: pointer
+	margin-top: 13px
+	@include bdrs(3px)
+
+.configuration-footer
+	width: 95%
+	padding: 16px 0 16px 20px
+	background-color: #f9f9f9
+
+	.label
+		font-size: 12px
+		
+		a
+			font-family: 'GothamBold'
+			color: #535353
+			border-bottom: 1px solid transparent
+			@include trans(all, .25s, linear)
+
+			&:hover
+				border-bottom: 1px solid #535353
+
+			&:last-child
+				margin-left: 3px
+
+
+		&:last-child
+			margin-top: 3px
+
+
+
+

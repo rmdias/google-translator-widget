@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "Google Translator Widget",
+  "description": "This extension translate de words that you select on webpage.",
+  "author": [
+    "Felipe Pires",
+    "Rodolfo Dias"
+  ],
+  "version": "0.0.3",
+  // "icons": {
+  //   "16": "icon16.png",
+  //   "48": "icon48.png",
+  //   "128": "icon128.png"
+  // },
+  "browser_action": {
+    "default_icon": "apple-touch-icon-precomposed.png",
+    "default_popup": "configurations.html",
+    "scripts": ["./js/all.min.js"]
+  },
+  "permissions": ["tabs", "http://*/*", "https://*/*", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["http://rmdias.com/*"],
+      "css": ["./css/all.min.css"],
+      "js": ["./js/all.min.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "./css/all.min.css",
+    "./js/all.min.js"
+  ]
+}
