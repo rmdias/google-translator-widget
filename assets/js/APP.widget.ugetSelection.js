@@ -24,7 +24,7 @@ APP.Widget.GetSelection = {
     }
     return text.trim();
   },
-  doSomethingWithSelectedText : function() {
+  doSomethingWithSelectedText : function(destinationLanguage) {
     var selectedText = APP.Widget.GetSelection.getSelectedText(),
         destinationLanguage = 'pt';
     

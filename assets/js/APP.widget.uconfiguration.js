@@ -6,49 +6,94 @@ APP.Widget.Configuration = {
   setUp: function() {
     var turnButton = document.querySelector('.switch-component');
 
+    console.log(chrome.storage);
+
     APP.Widget.Configuration.loadConfInChrome();
 
     turnButton.addEventListener('click', function (e) {
       APP.Widget.Configuration.turnStateForAutoTranslate();
     });
   },
-  saveConfInChrome : function(state) {
-    chrome.storage.sync.set({'Google-Chome-Widget-State': state}, function() {
-      message('Settings saved');
+  loadConfInChrome : function(){
+    var that = this,
+        turnButton = document.querySelector('.switch-component'),
+        componentLabel = document.querySelector('.switch-component .component-label');
+
+    that.loadCurrentState(turnButton, componentLabel);
+    that.loadDestinationLanguage();
+  },
+  loadCurrentState : function(turnButton, componentLabel) {
+    chrome.storage.sync.get('GoogleChromeWidgetState', function(key) {
+      if (key.GoogleChromeWidgetState === "undefined") {
+        APP.Widget.Configuration.saveInChromeStorage('GoogleChromeWidgetState','On');
+        turnButton
+          .classList
+          .remove('is-off');
+        turnButton
+          .classList
+          .add('is-on');
+        componentLabel.innerText = 'On';
+        console.log('não tinha e salvou');
+      }else{
+        if(key.GoogleChromeWidgetState === 'On'){
+          turnButton
+            .classList
+            .remove('is-off');
+          turnButton
+            .classList
+            .add('is-on');
+          componentLabel.innerText = 'On';
+
+        console.log('tinha e estava ligado');
+
+        }else{
+          turnButton
+            .classList
+            .remove('is-on');
+          turnButton
+            .classList
+            .add('is-off');
+          componentLabel.innerText = 'Off';  
+        
+          console.log('tinha e estava desligado');
+        }
+      }
     });
   },
-  loadConfInChrome : function(){
-    if (chrome.storage.get('Google-Chome-Widget-State')){
-      APP.Widget.Configuration.saveConfInChrome(chrome.storage.get('Google-Chome-Widget-State'));
+  loadDestinationLanguage : function() {
+    var select = document.querySelector('select'),
+        options = document.querySelectorAll('option');
 
-      if(chrome.storage.get('Google-Chome-Widget-State') === 'On'){
-        turnButton
-          .classList
-          .remove('is-off');
-        turnButton
-          .classList
-          .add('is-on');
-        componentLabel.innerText = 'On';
+    chrome.storage.sync.get('GoogleChromeWidgetDestinationLanguage', function(key) {
+
+      if(select.options[select.selectedIndex].value === 'none'){
+        
+        alert('You need choose some language!');
+
+
+
       }else{
-        turnButton
-          .classList
-          .remove('is-on');
-        turnButton
-          .classList
-          .add('is-off');
-        componentLabel.innerText = 'Off';  
-      }
-    }else{
-      turnButton
-          .classList
-          .remove('is-off');
-        turnButton
-          .classList
-          .add('is-on');
-        componentLabel.innerText = 'On';
+        if (key.GoogleChromeWidgetDestinationLanguage === "undefined") {
+          APP.Widget.Configuration.saveInChromeStorage('GoogleChromeWidgetDestinationLanguage', select.options[select.selectedIndex].value);
 
-      APP.Widget.Configuration.saveConfInChrome('on');
-    }
+          for (var i = 0; i < options.length; i++) {
+            if (options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage))
+              this.selected = true;
+          };
+        }else{
+          for (var i = 0; i < options.length; i++) {
+            if (options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage))
+            console.log(options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage));
+              this.selected = true;
+          };
+        }
+      }
+    });
+  },
+  saveInChromeStorage : function(keyName,state) {
+    chrome.storage.sync.set({ keyName : state }, function() {
+      console.log('Settings saved');
+    });
   },
   turnStateForAutoTranslate : function() {
     var turnButton = document.querySelector('.switch-component'),
@@ -63,7 +108,7 @@ APP.Widget.Configuration = {
         .add('is-on');
       componentLabel.innerText = 'On';
 
-      APP.Widget.Configuration.saveConfInChrome('On');
+      APP.Widget.Configuration.saveInChromeStorage('GoogleChromeWidgetState','On');
     }else if(turnButton.classList.contains('is-on')){
       turnButton
         .classList
@@ -72,7 +117,7 @@ APP.Widget.Configuration = {
         .classList
         .add('is-off');
       componentLabel.innerText = 'Off';  
-      APP.Widget.Configuration.saveConfInChrome('Off');
+      APP.Widget.Configuration.saveInChromeStorage('GoogleChromeWidgetState','Off');
     }
   }
 }

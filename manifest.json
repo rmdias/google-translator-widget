@@ -18,7 +18,13 @@
     "default_popup": "configurations.html",
     "scripts": ["./js/all.min.js"]
   },
-  "permissions": ["tabs", "http://*/*", "https://*/*", "storage"],
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*", 
+    "chrome://favicon/",
+    "storage"
+  ],
   "content_scripts": [
     {
       "matches": ["http://rmdias.com/*"],

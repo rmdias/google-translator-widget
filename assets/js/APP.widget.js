@@ -13,7 +13,7 @@ APP.Widget = {
      
     closeButton.addEventListener('click', function () {
       that.exiteForApplication();
-    });
+    });  
   },
   openCloseDatailsBar : function(event) {
     var translationsContent = event.target.parentNode;
