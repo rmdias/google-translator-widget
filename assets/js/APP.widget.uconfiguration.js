@@ -24,7 +24,8 @@ APP.Widget.Configuration = {
   },
   loadCurrentState : function(turnButton, componentLabel) {
     chrome.storage.sync.get('GoogleChromeWidgetState', function(key) {
-      if (key.GoogleChromeWidgetState === "undefined") {
+      console.log(key);
+      if (key.GoogleChromeWidgetState === undefined) {
         APP.Widget.Configuration.saveInChromeStorage('GoogleChromeWidgetState','On');
         turnButton
           .classList
@@ -35,7 +36,7 @@ APP.Widget.Configuration = {
         componentLabel.innerText = 'On';
         console.log('não tinha e salvou');
       }else{
-        if(key.GoogleChromeWidgetState === 'On'){
+        if(key.GoogleChromeWidgetState === 'On' || key.GoogleChromeWidgetState === 'on'){ 
           turnButton
             .classList
             .remove('is-off');
@@ -66,33 +67,39 @@ APP.Widget.Configuration = {
 
     chrome.storage.sync.get('GoogleChromeWidgetDestinationLanguage', function(key) {
 
-      if(select.options[select.selectedIndex].value === 'none'){
-        
+      console.log(key.GoogleChromeWidgetDestinationLanguage);
+
+      if (key.GoogleChromeWidgetDestinationLanguage === undefined) {
+
         alert('You need choose some language!');
 
-
-
+        for (var i = 0; i < options.length; i++) {
+          if (options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage) === 0){
+            options[i].selected = true;
+            break;
+          }
+        };
       }else{
-        if (key.GoogleChromeWidgetDestinationLanguage === "undefined") {
-          APP.Widget.Configuration.saveInChromeStorage('GoogleChromeWidgetDestinationLanguage', select.options[select.selectedIndex].value);
+        for (var i = 0; i < options.length; i++) {
+          console.log(options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage));
+          if (options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage) === 0){
+            options[i].selected = true;
 
-          for (var i = 0; i < options.length; i++) {
-            if (options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage))
-              this.selected = true;
-          };
-        }else{
-          for (var i = 0; i < options.length; i++) {
-            if (options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage))
-            console.log(options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage));
-              this.selected = true;
-          };
-        }
+            console.log(this);
+            break;
+          }
+        };
       }
+
+      select.addEventListener('change', function (e) {
+        APP.Widget.Configuration.saveInChromeStorage('GoogleChromeWidgetDestinationLanguage', select.options[select.selectedIndex].value);
+        console.log(select.options[select.selectedIndex].value);
+      }, false);
     });
   },
   saveInChromeStorage : function(keyName,state) {
     chrome.storage.sync.set({ keyName : state }, function() {
-      console.log('Settings saved');
+      console.log('saved key - ', keyName, ' in:', state, ' State');
     });
   },
   turnStateForAutoTranslate : function() {
