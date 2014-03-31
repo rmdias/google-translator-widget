@@ -24,24 +24,31 @@ APP.Widget.GetSelection = {
     }
     return text.trim();
   },
-  doSomethingWithSelectedText : function(destinationLanguage) {
-    var selectedText = APP.Widget.GetSelection.getSelectedText(),
-        destinationLanguage = 'pt';
-    
-    if (
-      selectedText
-      && selectedText != " "
-      && selectedText != undefined
-      && selectedText != 'undefined'
-      ){
+  doSomethingWithSelectedText : function() {
+    chrome.storage.sync.get('GoogleChromeWidgetState', function(obj) { 
+      if(obj.GoogleChromeWidgetState == 'On') {
+        chrome.storage.sync.get('GoogleChromeWidgetDestinationLanguage', function(obj) { 
+          var selectedText = APP.Widget.GetSelection.getSelectedText(),
+              destinationLanguage = obj.GoogleChromeWidgetDestinationLanguage;
+        
+        if (
+          selectedText
+          && selectedText != " "
+          && selectedText != undefined
+          && selectedText != 'undefined'
+          ){
 
-      var originalText = document.querySelector('.original-words-box-google-translator-app .words-google-translator-app');
-      var translatedLang = document.querySelector('.translated-words-box-google-translator-app .language-google-translator-app');
+          var originalText = document.querySelector('.original-words-box-google-translator-app .words-google-translator-app');
+          var translatedLang = document.querySelector('.translated-words-box-google-translator-app .language-google-translator-app');
 
-      originalText.innerText = selectedText;
-      translatedLang.innerText = APP.Widget.setLanguageName(destinationLanguage);
+          originalText.innerText = selectedText;
+          translatedLang.innerText = APP.Widget.setLanguageName(destinationLanguage);
 
-      APP.Widget.Request.translateRequest(destinationLanguage ,selectedText);
-    }
+          APP.Widget.Request.translateRequest(destinationLanguage, selectedText);
+        }
+          console.log(obj);
+        });
+      }
+    });
   }
 }
