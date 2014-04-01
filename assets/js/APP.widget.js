@@ -5,16 +5,13 @@ APP.Widget = {
   setUp: function() {
     var that = this,
         applicationCode = '<div class="google-translator-global-app" style="-webkit-transform: translate(0px,-200%)"> <section class="header-google-translator-app"> <div class="original-words-box-google-translator-app"> <h2 class="language-google-translator-app"></h2> <h2 class="words-google-translator-app"></h2> </div> <div class="translated-words-box-google-translator-app"> <h2 class="language-google-translator-app"></h2> <h2 class="words-google-translator-app"></h2> </div> <div class="close-google-translator-app">X</div></section></div>';
-        // button = document.querySelector('.open-bar-google-translator-app'),
-
-
 
     document.querySelector('body').insertAdjacentHTML('beforeend', applicationCode);
 
-    that.teste();
+    that.closeButtonF();
 
   },
-  teste : function(argument) {
+  closeButtonF : function(argument) {
     var closeButton = document.querySelector('.close-google-translator-app');
 
      closeButton.addEventListener('click', function () {
@@ -239,22 +236,17 @@ APP.Widget = {
         treeLines = twoLines + 40,
         fourLines = treeLines + 40,
 
-    translatedText = document.querySelector('.translated-words-box-google-translator-app .words-google-translator-app');   
-
-    console.log(twoLines, treeLines, fourLines);
+    translatedText = document.querySelector('.translated-words-box-google-translator-app .words-google-translator-app');
 
     if(translatedText.offsetHeight >= fourLines){
       translatedText.classList.remove('fourLinesBest treeLinesBest twoLinesBest');
       translatedText.classList.add('fourLinesBest');
-      console.log('1');
     }else if(translatedText.offsetHeight >= treeLines){
       translatedText.classList.remove('fourLinesBest treeLinesBest twoLinesBest');
       translatedText.classList.add('treeLinesBest');
-      console.log('2');
     }else if(translatedText.offsetHeight >= twoLines){
       translatedText.classList.remove('fourLinesBest treeLinesBest twoLinesBest');
       translatedText.classList.add('twoLinesBest');
-      console.log('3');
     }
   }
 }

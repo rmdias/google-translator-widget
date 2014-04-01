@@ -8,11 +8,11 @@
     "Rodolfo Dias"
   ],
   "version": "0.0.10",
-  // "icons": {
-  //   "16": "icon16.png",
-  //   "48": "icon48.png",
-  //   "128": "icon128.png"
-  // },
+  "icons": {
+    "16": "apple-touch-icon-precomposed.png",
+    "48": "apple-touch-icon-precomposed.png",
+    "128": "apple-touch-icon-precomposed.png"
+  },
   "browser_action": {
     "default_icon": "apple-touch-icon-precomposed.png",
     "default_popup": "configurations.html"
