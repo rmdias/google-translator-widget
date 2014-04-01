@@ -7,7 +7,7 @@
     "Felipe Pires",
     "Rodolfo Dias"
   ],
-  "version": "0.0.3",
+  "version": "0.0.10",
   // "icons": {
   //   "16": "icon16.png",
   //   "48": "icon48.png",
@@ -15,8 +15,7 @@
   // },
   "browser_action": {
     "default_icon": "apple-touch-icon-precomposed.png",
-    "default_popup": "configurations.html",
-    "scripts": ["./js/all.min.js"]
+    "default_popup": "configurations.html"
   },
   "permissions": [
     "tabs",
@@ -27,13 +26,12 @@
   ],
   "content_scripts": [
     {
-      "matches": ["http://rmdias.com/*"],
-      "css": ["./css/all.min.css"],
-      "js": ["./js/all.min.js"]
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": ["./css/google-translator-widget.min.css"],
+      "js": ["./js/jquery-1.11.0.min.js", "./js/google-translator-widget.min.js", "./js/run.google.translator.widget.js"]
     }
-  ],
-  "web_accessible_resources": [
-    "./css/all.min.css",
-    "./js/all.min.js"
   ]
 }

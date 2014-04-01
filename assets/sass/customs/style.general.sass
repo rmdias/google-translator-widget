@@ -1,141 +1,133 @@
 .google-translator-global-app
-	font-size: em(20px)
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-
-	width: 100%
-	text-align: center
-	position: fixed
-	top: 0
-	opacity: 0
-	-webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1), inset 1px 1px 5px 1px rgba(0,0,0,0.1)
-	box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1), inset 1px 1px 5px 1px rgba(0,0,0,0.1)
-	-webkit-transform: translate(0px,-200%)
+	font-size: em(20px)!important
+	width: 100%!important
+	text-align: center!important
+	position: fixed!important
+	z-index: 99999999999999999999999999999999999!important
+	top: 0!important
+	left: 0 !important
+	opacity: 0!important
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1), inset 1px 1px 5px 1px rgba(0,0,0,0.1)!important
+	box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1), inset 1px 1px 5px 1px rgba(0,0,0,0.1)!important
+	-webkit-transform: translate(0px,-200%)!important
 	@include trans(all, .6s, linear)
 
 	&.translating-google-translator-app
-		-webkit-transform: translate(0,0)
-		opacity: 1
+		-webkit-transform: translate(0,0)!important
+		opacity: 1!important
 
 .close-google-translator-app
-	position: absolute
-	top: 10px
-	right: 10px
-	width: 20px
-	height: 20px
-	background-color: #D14836
-	background-image: -webkit-linear-gradient(top,#DD4B39,#D14836)
-	background-image: linear-gradient(top,#dd4b39,#d14836)
-	border: 1px solid rgba(0, 0, 0, 0)
-	text-shadow: 0 1px rgba(0, 0, 0, 0.1)
-	color: #FFF
-	font-family: 'GothamBook'
-	font-weight: 900
-	font-size: 12px
-	line-height: 1.7
-	text-align: center
-	cursor: pointer	
-	@include bdrs(3px)
+	position: absolute!important
+	top: 10%!important
+	right: 2%!important
+	width: 50px!important
+	height: 50px!important
+	background: transparent url(http://rmdias.com/google-translator/img/btn_fechar.png) 0 0 no-repeat!important
+	cursor: pointer	!important
+	text-indent: -9999px
+	@include bdrs(50em!important)
 
 .header-google-translator-app
-	width: 100%
-	background-color: #1f7ad5
-	color: #fff
-	padding-top: 14px
-	position: relative
+	width: 100%!important
+	background-color: #1f7ad5!important
+	color: #fff!important
+	padding-top: 14px!important
+	position: relative!important
 
 .original-words-box-google-translator-app
-	width: 90%
-	text-align: left
-	display: inline-block
-	margin-bottom: 16px
+	width: 90%!important
+	text-align: left!important
+	display: inline-block!important
+	margin-bottom: 16px!important
 
 	.language-google-translator-app
-		font-size: em(8px)
-		opacity: .5
-		font-family: 'GothamBook'
+		font-size: em(8px)!important
+		opacity: .5!important
+		font-family: 'GothamBook'!important
 
 	.words-google-translator-app
-		font-size: em(14px)
-		font-family: 'GothamBook'
-		margin-top: 3px
-		max-height: 95px
-		overflow-y: scroll
+		font-size: em(14px)!important
+		font-family: 'GothamBook'!important
+		margin-top: 3px!important
+		max-height: 95px!important
+		overflow-y: scroll!important
 		
 		&:first-letter
-			text-transform: uppercase
+			text-transform: uppercase!important
 
 .translated-words-box-google-translator-app
 	@extend .original-words-box-google-translator-app
-	margin-bottom: 10px
+	margin-bottom: 10px!important
 
 	.words-google-translator-app
-		font-size: em(24px)
-		font-weight: 900
+		font-size: em(24px)!important
+		font-weight: 900!important
+
+		&.fourLinesBest
+			font-size: 36px !important
+		&.treeLinesBest
+			font-size: 28px !important
+		&.twoLinesBest
+			font-size: 20px !important
 
 .translation-result-google-translator-app
-	display: none
-	width: 100%
-	height: 10px
-	background-color: #FFF
-	padding: 10px 0 60px 0
-	border-bottom: 1px solid gray
-	position: absolute
-	overflow: hidden
+	display: none!important
+	width: 100%!important
+	height: 10px!important
+	background-color: #FFF!important
+	padding: 10px 0 60px 0!important
+	border-bottom: 1px solid gray!important
+	position: absolute!important
+	overflow: hidden!important
 	@include trans(all, .3s, linear)
 
 	&.on-bar-google-translator-app
-		height: auto
+		height: auto!important
 
 		.substantive-list-google-translator-app
-			opacity: 1
+			opacity: 1!important
 
 		.verb-list-google-translator-app
-			opacity: 1
+			opacity: 1!important
 
 	.title-of-block-google-translator-app
-		width: 90%
-		text-align: left
-		display: inline-block
-		color: #1f7ad5
-		font-weight: 900
-		font-size: em(10px)
-		margin-bottom: 20px
+		width: 90%!important
+		text-align: left!important
+		display: inline-block!important
+		color: #1f7ad5!important
+		font-weight: 900!important
+		font-size: em(10px)!important
+		margin-bottom: 20px!important
 
 .substantive-list-google-translator-app
-	width: 45%
-	text-align: left
-	display: inline-block
-	margin-bottom: 20px
-	opacity: 0
+	width: 45%!important
+	text-align: left!important
+	display: inline-block!important
+	margin-bottom: 20px!important
+	opacity: 0!important
 	@include trans(all, .3s, linear)
 
 	.title-of-col-google-translator-app
-		font-size: (12px)
-		color: #ccc
-		padding-bottom: 12px
+		font-size: (12px)!important
+		color: #ccc!important
+		padding-bottom: 12px!important
 
 	.prime-word-google-translator-app
-		font-size: (18px)
-		color: gray
+		font-size: (18px)!important
+		color: gray!important
 
 	.others-words-google-translator-app
-		font-size: (20px)
-		color: #ccc
+		font-size: (20px)!important
+		color: #ccc!important
 
 .verb-list-google-translator-app
 	@extend .substantive-list-google-translator-app
 
 .open-bar-google-translator-app
-	position: absolute
-	left: 47%
-	bottom: 10px
-	width: 30px
-	height: 30px
-	background-color: red
-	text-indent: -9999px
-
-h1
-	font-size: em(46px)
-	padding-top: 5em
-	text-align: center
-
+	position: absolute!important
+	left: 47%!important
+	bottom: 10px!important
+	width: 30px!important
+	height: 30px!important
+	background-color: red!important
+	text-indent: -9999px!important

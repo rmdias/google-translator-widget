@@ -17,23 +17,41 @@ var imagemin = require('gulp-imagemin');
 gulp.task('build', function(){
  
   // { concat, minify & jshint }
-  var scriptFiles = './assets/js/**/*.js';
-  var scriptDist = './js';
+  var pluginScriptFiles = ['./assets/js/APP.js', './assets/js/APP.widget.js', './assets/js/APP.widget.getSelection.js', './assets/js/APP.widget.request.js'];
+  var pluginDist = './js';
   
-  gulp.src(scriptFiles)
-      .pipe(concat('all.min.js'))
+  gulp.src(pluginScriptFiles)
+      .pipe(concat('google-translator-widget.min.js'))
       // .pipe(uglify())
-      .pipe(gulp.dest(scriptDist));
+      .pipe(gulp.dest(pluginDist));
 
+
+  // { concat, minify & jshint }
+  var configurationScriptFiles = ['./assets/js/APP.js', './assets/js/APP.widget.configuration.js'];
+  var configurationScriptDist = './js';
+  
+  gulp.src(configurationScriptFiles)
+      .pipe(concat('google-translator-widget.configuration.min.js'))
+      // .pipe(uglify())
+      .pipe(gulp.dest(configurationScriptDist));
 
   // { sass }
-  var sassFiles = './assets/sass/all.sass';
-  var sassDist = './css';
+  var pluginFiles = './assets/sass/google-translator-widget.all.sass';
+  var pluginDist = './css';
 
-  gulp.src(sassFiles)
-      .pipe(concat('all.min.sass'))
+  gulp.src(pluginFiles)
+      .pipe(concat('google-translator-widget.min.sass'))
       .pipe(sass({unixNewlines: true, style: 'compressed'}))
-      .pipe(gulp.dest('./css'));
+      .pipe(gulp.dest(pluginDist));
+
+  // { sass }
+  var pluginFiles = './assets/sass/google-translator-widget.configuration.all.sass';
+  var pluginDist = './css';
+
+  gulp.src(pluginFiles)
+      .pipe(concat('google-translator-widget.configuration.min.sass'))
+      .pipe(sass({unixNewlines: true, style: 'compressed'}))
+      .pipe(gulp.dest(pluginDist));
 
 
   // { image optimizer }

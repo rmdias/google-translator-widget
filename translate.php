@@ -16,7 +16,8 @@
 	$q = urlencode(stripslashes($_REQUEST['q']));
 
 	// Google's API translator URL
-	$url = "http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=".$q."&langpair=".$lang_pair;
+	// $url = "http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=".$q."&langpair=".$lang_pair;
+	$url = "https://www.googleapis.com/language/translate/v2?key=AIzaSyAWPJ8UimSTLnl9rBQKDRmx0_p_BCaPi04Y&target=". $lang_pair ."&q=". $q;
 
 	// Make sure to set CURLOPT_REFERER because Google doesn't like if you leave the referrer out
 	$ch = curl_init();
