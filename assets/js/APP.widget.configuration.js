@@ -72,7 +72,7 @@ APP.Widget.Configuration = {
 
       if (key.GoogleChromeWidgetDestinationLanguage === undefined) {
 
-        alert('You need choose some language!');
+        console.log('You need choose some language!');
 
         for (var i = 0; i < options.length; i++) {
           if (options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage) === 0){
