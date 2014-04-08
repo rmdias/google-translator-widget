@@ -1,20 +1,19 @@
 {
   "manifest_version": 2,
-
   "name": "Google Translator Widget",
   "description": "This extension translate de words that you select on webpage.",
   "author": [
     "Felipe Pires",
     "Rodolfo Dias"
   ],
-  "version": "0.0.10",
+  "version": "0.0.12",
   "icons": {
-    "16": "apple-touch-icon-precomposed.png",
-    "48": "apple-touch-icon-precomposed.png",
-    "128": "apple-touch-icon-precomposed.png"
+    "16": "icn_16.png",
+    "48": "icn_48.png",
+    "128": "icn_128.png"
   },
   "browser_action": {
-    "default_icon": "apple-touch-icon-precomposed.png",
+    "default_icon": "icn_48.png",
     "default_popup": "configurations.html"
   },
   "permissions": [

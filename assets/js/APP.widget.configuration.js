@@ -74,8 +74,10 @@ APP.Widget.Configuration = {
 
         console.log('You need choose some language!');
 
+        var navigatorLanguage = navigator.language;
+
         for (var i = 0; i < options.length; i++) {
-          if (options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage) === 0){
+          if (options[i].value.indexOf(navigatorLanguage.split('-')[0]) === 0){
             options[i].selected = true;
             break;
           }
