@@ -1,3 +1,6 @@
+body
+	@include trans(all, .6s, linear)
+
 .google-translator-global-app
 	font-size: em(20px)!important
 	width: 100%!important
@@ -62,20 +65,20 @@
 		&:first-letter
 			text-transform: uppercase!important
 
+		&.fourLinesBest
+			font-size: 14px !important
+		&.treeLinesBest
+			font-size: 16px !important
+		&.twoLinesBest
+			font-size: 24px !important
+
 .translated-words-box-google-translator-app
 	@extend .original-words-box-google-translator-app
 	margin-bottom: 10px!important
 
 	.words-google-translator-app
-		font-size: em(18px)!important
+		font-size: 36px !important
 		font-weight: 900!important
-
-		&.fourLinesBest
-			font-size: 36px !important
-		&.treeLinesBest
-			font-size: 28px !important
-		&.twoLinesBest
-			font-size: 20px !important
 
 .translation-result-google-translator-app
 	display: none!important

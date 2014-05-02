@@ -24,7 +24,6 @@ APP.Widget.Request = {
         translatedText = document.querySelector('.translated-words-box-google-translator-app .words-google-translator-app'),
         translatedLang = document.querySelector('.original-words-box-google-translator-app .language-google-translator-app');
 
-    $('.translated-words-box-google-translator-app .words-google-translator-app').css('font-size', '36px !important');
     translatedLang.innerText = APP.Widget.setLanguageName(data.detectedSourceLanguage);
     translatedText.innerText = data.translatedText;
     
@@ -34,8 +33,5 @@ APP.Widget.Request = {
   },
   failRequest : function() {
     console.log("We were unable to translate this word :(");
-  },
-  afterRequest : function(data) {
-    console.log("complete");
   }
 }

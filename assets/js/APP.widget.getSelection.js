@@ -46,6 +46,8 @@ APP.Widget.GetSelection = {
         that.doSomethingWithSelectedText();
       }
     });
+
+
   },
   getSelectedText : function() {
     var text = "";
@@ -80,7 +82,6 @@ APP.Widget.GetSelection = {
           }
         });
       }else{
-        // alert('desligado')
       }
     });
   }

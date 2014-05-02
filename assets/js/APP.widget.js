@@ -7,11 +7,10 @@ APP.Widget = {
         applicationCode = '<div class="google-translator-global-app" style="-webkit-transform: translate(0px,-200%)"> <section class="header-google-translator-app"> <div class="original-words-box-google-translator-app"> <h2 class="language-google-translator-app"></h2> <h2 class="words-google-translator-app"></h2> </div> <div class="translated-words-box-google-translator-app"> <h2 class="language-google-translator-app"></h2> <h2 class="words-google-translator-app"></h2> </div> <div class="close-google-translator-app">X</div></section></div>';
 
     document.querySelector('body').insertAdjacentHTML('beforeend', applicationCode);
-
-    that.closeButtonF();
-
+   
+    that.closeButton();
   },
-  closeButtonF : function(argument) {
+  closeButton : function() {
     var closeButton = document.querySelector('.close-google-translator-app');
 
      closeButton.addEventListener('click', function () {
@@ -236,17 +235,18 @@ APP.Widget = {
         treeLines = twoLines + 40,
         fourLines = treeLines + 40,
 
-    translatedText = document.querySelector('.translated-words-box-google-translator-app .words-google-translator-app');
+    translatedText = document.querySelectorAll('.words-google-translator-app');
 
-    if(translatedText.offsetHeight >= fourLines){
-      translatedText.classList.remove('fourLinesBest treeLinesBest twoLinesBest');
-      translatedText.classList.add('fourLinesBest');
-    }else if(translatedText.offsetHeight >= treeLines){
-      translatedText.classList.remove('fourLinesBest treeLinesBest twoLinesBest');
-      translatedText.classList.add('treeLinesBest');
-    }else if(translatedText.offsetHeight >= twoLines){
-      translatedText.classList.remove('fourLinesBest treeLinesBest twoLinesBest');
-      translatedText.classList.add('twoLinesBest');
-    }
+    for (var i = 0; i < translatedText.length; i++) {
+      translatedText[i].classList.remove('fourLinesBest', 'treeLinesBest', 'twoLinesBest');
+
+      if(translatedText[i].offsetHeight >= fourLines){
+        translatedText[i].classList.add('fourLinesBest');
+      }else if(translatedText[i].offsetHeight >= treeLines){
+        translatedText[i].classList.add('treeLinesBest');
+      }else if(translatedText[i].offsetHeight >= twoLines){
+        translatedText[i].classList.add('twoLinesBest');
+      }
+    };
   }
 }

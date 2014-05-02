@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Google Translator Widget",
-  "description": "This extension translate de words that you select on webpage.",
+  "name": "Translator Widget",
+  "description": "This extension translate the words that you select on webpage.",
   "author": [
     "Felipe Pires",
     "Rodolfo Dias"
   ],
-  "version": "0.0.12",
+  "version": "0.0.19",
   "icons": {
     "16": "icn_16.png",
     "48": "icn_48.png",
@@ -21,6 +21,7 @@
     "http://*/*",
     "https://*/*", 
     "chrome://favicon/",
+    "contextMenus",
     "storage"
   ],
   "content_scripts": [

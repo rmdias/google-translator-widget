@@ -6,13 +6,48 @@ APP.Widget.Configuration = {
   setUp: function() {
     var turnButton = document.querySelector('.switch-component');
 
-    console.log(chrome.storage);
-
     APP.Widget.Configuration.loadConfInChrome();
 
     turnButton.addEventListener('click', function (e) {
       APP.Widget.Configuration.turnStateForAutoTranslate();
     });
+    
+  // APP.Widget.Configuration.createContextMenu();
+    APP.Widget.Configuration.clearContextMenu();
+
+
+  },
+  createContextMenu : function (title, checked, type, setState ) {
+
+    function GoogleChromeWidgetSetState () {
+      
+      chrome.storage.sync.set({ 'GoogleChromeWidgetState' : setState });
+
+      chrome.storage.sync.get('GoogleChromeWidgetState', function(key) {
+        console.log(key);
+       });
+      APP.Widget.Configuration.clearContextMenu();
+      APP.Widget.Configuration.loadConfInChrome();
+
+      // setState
+      console.log(setState);
+
+      console.log('errad');
+    }
+    
+   
+    chrome.contextMenus.create({
+      "title": title,
+      "checked": checked,
+      "type": type,
+      "contexts":["all"], 
+      "onclick": GoogleChromeWidgetSetState,
+    });
+
+    console.log(chrome.contextMenus);
+  },
+  clearContextMenu : function() {
+    chrome.contextMenus.removeAll();
   },
   loadConfInChrome : function(){
     var that = this,
@@ -24,10 +59,8 @@ APP.Widget.Configuration = {
   },
   loadCurrentState : function(turnButton, componentLabel) {
     chrome.storage.sync.get('GoogleChromeWidgetState', function(key) {
-      console.log(key);
       if (key.GoogleChromeWidgetState === undefined) {
         chrome.storage.sync.set({ 'GoogleChromeWidgetState' : 'On' });
-
         turnButton
           .classList
           .remove('is-off');
@@ -35,7 +68,12 @@ APP.Widget.Configuration = {
           .classList
           .add('is-on');
         componentLabel.innerText = 'On';
-        console.log('não tinha e salvou');
+
+        console.log('1');
+
+        APP.Widget.Configuration.createContextMenu("On", true, "checkbox", "On");
+        APP.Widget.Configuration.createContextMenu("Off", false, "checkbox", "Off");
+
       }else{
         if(key.GoogleChromeWidgetState === 'On' || key.GoogleChromeWidgetState === 'on'){ 
           turnButton
@@ -45,9 +83,10 @@ APP.Widget.Configuration = {
             .classList
             .add('is-on');
           componentLabel.innerText = 'On';
+        console.log('2');
 
-        console.log('tinha e estava ligado');
-
+          APP.Widget.Configuration.createContextMenu("On", true, "checkbox", "On");
+          APP.Widget.Configuration.createContextMenu("Off", false, "checkbox", "Off");
         }else{
           turnButton
             .classList
@@ -55,9 +94,11 @@ APP.Widget.Configuration = {
           turnButton
             .classList
             .add('is-off');
-          componentLabel.innerText = 'Off';  
-        
-          console.log('tinha e estava desligado');
+          componentLabel.innerText = 'Off';
+        console.log('3');
+
+          APP.Widget.Configuration.createContextMenu("On", false, "checkbox", "On");
+          APP.Widget.Configuration.createContextMenu("Off", true, "checkbox", "Off");
         }
       }
     });
@@ -68,13 +109,11 @@ APP.Widget.Configuration = {
 
     chrome.storage.sync.get('GoogleChromeWidgetDestinationLanguage', function(key) {
 
-      console.log(key.GoogleChromeWidgetDestinationLanguage);
-
       if (key.GoogleChromeWidgetDestinationLanguage === undefined) {
 
-        console.log('You need choose some language!');
-
         var navigatorLanguage = navigator.language;
+        
+        chrome.storage.sync.set({ 'GoogleChromeWidgetDestinationLanguage' : navigatorLanguage.split('-')[0] });
 
         for (var i = 0; i < options.length; i++) {
           if (options[i].value.indexOf(navigatorLanguage.split('-')[0]) === 0){
@@ -84,11 +123,8 @@ APP.Widget.Configuration = {
         };
       }else{
         for (var i = 0; i < options.length; i++) {
-          console.log(options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage));
           if (options[i].value.indexOf(key.GoogleChromeWidgetDestinationLanguage) === 0){
             options[i].selected = true;
-
-            console.log(this);
             break;
           }
         };
@@ -96,7 +132,6 @@ APP.Widget.Configuration = {
 
       select.addEventListener('change', function (e) {
         chrome.storage.sync.set({ 'GoogleChromeWidgetDestinationLanguage' : select.options[select.selectedIndex].value });
-        console.log(select.options[select.selectedIndex].value);
       }, false);
     });
   },
