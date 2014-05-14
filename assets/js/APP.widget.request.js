@@ -9,7 +9,7 @@ APP.Widget.Request = {
     $.ajax({
       type: "GET",
       url: "https://www.googleapis.com/language/translate/v2",
-      data: { key: "AIzaSyAWPJ8UimSTLnl9rBQKDRmx0_p_BCaPi04", target: destinationLanguage, q: queryWords },
+      data: { key: "AIzaSyAbT-jEDFrR_0UwPqGXeBCgBrNZLpLgjLc", target: destinationLanguage, q: queryWords },
       dataType: 'json',
       success: function (data) {
         APP.Widget.Request.successRequest(data.data.translations[0]);
