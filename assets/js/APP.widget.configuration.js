@@ -12,7 +12,7 @@ APP.Widget.Configuration = {
       APP.Widget.Configuration.turnStateForAutoTranslate();
     });
     
-  // APP.Widget.Configuration.createContextMenu();
+    // APP.Widget.Configuration.createContextMenu();
     APP.Widget.Configuration.clearContextMenu();
 
 
@@ -31,8 +31,6 @@ APP.Widget.Configuration = {
 
       // setState
       console.log(setState);
-
-      console.log('errad');
     }
     
    
@@ -69,11 +67,8 @@ APP.Widget.Configuration = {
           .add('is-on');
         componentLabel.innerText = 'On';
 
-        console.log('1');
-
-        APP.Widget.Configuration.createContextMenu("On", true, "checkbox", "On");
-        APP.Widget.Configuration.createContextMenu("Off", false, "checkbox", "Off");
-
+        // APP.Widget.Configuration.createContextMenu("On", true, "checkbox", "On");
+        // APP.Widget.Configuration.createContextMenu("Off", false, "checkbox", "Off");
       }else{
         if(key.GoogleChromeWidgetState === 'On' || key.GoogleChromeWidgetState === 'on'){ 
           turnButton
@@ -83,10 +78,9 @@ APP.Widget.Configuration = {
             .classList
             .add('is-on');
           componentLabel.innerText = 'On';
-        console.log('2');
 
-          APP.Widget.Configuration.createContextMenu("On", true, "checkbox", "On");
-          APP.Widget.Configuration.createContextMenu("Off", false, "checkbox", "Off");
+          // APP.Widget.Configuration.createContextMenu("On", true, "checkbox", "On");
+          // APP.Widget.Configuration.createContextMenu("Off", false, "checkbox", "Off");
         }else{
           turnButton
             .classList
@@ -95,10 +89,9 @@ APP.Widget.Configuration = {
             .classList
             .add('is-off');
           componentLabel.innerText = 'Off';
-        console.log('3');
 
-          APP.Widget.Configuration.createContextMenu("On", false, "checkbox", "On");
-          APP.Widget.Configuration.createContextMenu("Off", true, "checkbox", "Off");
+          // APP.Widget.Configuration.createContextMenu("On", false, "checkbox", "On");
+          // APP.Widget.Configuration.createContextMenu("Off", true, "checkbox", "Off");
         }
       }
     });
